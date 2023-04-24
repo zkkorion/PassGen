@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+.header {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 2px solid #B5EAF5;
+    margin-bottom: 20px;
+}
+
+.header__search {
+    width: 100%;
+}
+.passInput {
+    height: 25px;
+}
+.p-inputtext {
+    background: #0C4755 !important;
+}
+.p-button.p-button-icon-only{
+    width: 2rem !important;
+    height: 2rem !important;
+}
