@@ -1,20 +1,25 @@
 <div class="header">
-    <div class="header__search p-float-label">
-        <input class="passInput" type="text" pInputText />
-        <label for="float-input">search resource</label>
+    <div class="header__search search">
+        <div class="search__item">
+            <label class="header__label">search resource</label>
+            <input class="passInput" type="text" pInputText />
+        </div>
+        <div class="search__item">
+            <label class="header__label">search login</label>
+            <input class="passInput" type="text" pInputText />
+        </div>
     </div>
-    <div class="header__search p-float-label">
-        <input class="passInput" type="text" pInputText /> 
-        <label for="float-input">search login</label>
-    </div>
-    <div class="header__button">
-        <button pButton class="p-button-sm p-button-outlined" icon="pi pi-plus" pTooltip="add new password"></button>
-    </div>
-    <div class="header__button">
-        <button pButton class="p-button-sm p-button-outlined" icon="pi pi-cog" pTooltip="settings"></button>
+    <div class="header__btns">
+        <button pButton class="p-button-sm p-button-outlined header__btn" icon="pi pi-plus" pTooltip="add new password"></button>
+        <button pButton class="p-button-sm p-button-outlined header__btn hideDesctop" icon="pi pi-folder" pTooltip="tabs choise"></button>
+        <button pButton class="p-button-sm p-button-outlined header__btn" icon="pi pi-cog" pTooltip="settings"></button>
     </div>
 </div>
-<div class="main">
+<div class="tabs">
+    <button class="tabs__btn"><span class="pi pi-folder"></span> Tab's Name</button>
+    <button class="tabs__btn"><span class="pi pi-folder"></span> Tab's Name 2</button>
+</div>
+<div class="passCardList">
     <div class="passCard">
         <div class="passCard__order order">
             <div class="order__label">order</div>
@@ -36,14 +41,163 @@
             <div class="data__item">
                 <div class="data__label">password:</div>
                 <input class="passInput data__input" type="text" pInputText />
-                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+                <button
+                    pButton
+                    class="p-button-sm p-button-outlined data__copy"
+                    icon="pi pi-clone"
+                    pTooltip="add new password"></button>
             </div>
         </div>
         <div class="passCard__controls controls">
-            <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-save" pTooltip="add new password"></button>
-            <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-eye" pTooltip="add new password"></button>
-            <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-key" pTooltip="add new password"></button>
-            <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-trash" pTooltip="add new password"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-save" pTooltip="save changes"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-folder" pTooltip="change tab"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-key" pTooltip="generate password"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-eye" pTooltip="show password (20 sec.)"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-trash" pTooltip="delete pass card"></button>
+        </div>
+    </div>
+    <div class="passCard">
+        <div class="passCard__order order">
+            <div class="order__label">order</div>
+            <div class="order__input">
+                <input class="passInput" type="text" pInputText />
+            </div>
+        </div>
+        <div class="passCard__data data">
+            <div class="data__item">
+                <div class="data__label">resource:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">login:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">password:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button
+                    pButton
+                    class="p-button-sm p-button-outlined data__copy"
+                    icon="pi pi-clone"
+                    pTooltip="add new password"></button>
+            </div>
+        </div>
+        <div class="passCard__controls controls">
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-save" pTooltip="save changes"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-folder" pTooltip="change tab"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-key" pTooltip="generate password"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-eye" pTooltip="show password (20 sec.)"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-trash" pTooltip="delete pass card"></button>
+        </div>
+    </div>
+    <div class="passCard">
+        <div class="passCard__order order">
+            <div class="order__label">order</div>
+            <div class="order__input">
+                <input class="passInput" type="text" pInputText />
+            </div>
+        </div>
+        <div class="passCard__data data">
+            <div class="data__item">
+                <div class="data__label">resource:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">login:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">password:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button
+                    pButton
+                    class="p-button-sm p-button-outlined data__copy"
+                    icon="pi pi-clone"
+                    pTooltip="add new password"></button>
+            </div>
+        </div>
+        <div class="passCard__controls controls">
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-save" pTooltip="save changes"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-folder" pTooltip="change tab"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-key" pTooltip="generate password"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-eye" pTooltip="show password (20 sec.)"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-trash" pTooltip="delete pass card"></button>
+        </div>
+    </div>
+    <div class="passCard">
+        <div class="passCard__order order">
+            <div class="order__label">order</div>
+            <div class="order__input">
+                <input class="passInput" type="text" pInputText />
+            </div>
+        </div>
+        <div class="passCard__data data">
+            <div class="data__item">
+                <div class="data__label">resource:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">login:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">password:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button
+                    pButton
+                    class="p-button-sm p-button-outlined data__copy"
+                    icon="pi pi-clone"
+                    pTooltip="add new password"></button>
+            </div>
+        </div>
+        <div class="passCard__controls controls">
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-save" pTooltip="save changes"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-folder" pTooltip="change tab"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-key" pTooltip="generate password"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-eye" pTooltip="show password (20 sec.)"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-trash" pTooltip="delete pass card"></button>
+        </div>
+    </div>
+    <div class="passCard">
+        <div class="passCard__order order">
+            <div class="order__label">order</div>
+            <div class="order__input">
+                <input class="passInput" type="text" pInputText />
+            </div>
+        </div>
+        <div class="passCard__data data">
+            <div class="data__item">
+                <div class="data__label">resource:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">login:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button pButton class="p-button-sm p-button-outlined data__copy" icon="pi pi-clone" pTooltip="add new password"></button>
+            </div>
+            <div class="data__item">
+                <div class="data__label">password:</div>
+                <input class="passInput data__input" type="text" pInputText />
+                <button
+                    pButton
+                    class="p-button-sm p-button-outlined data__copy"
+                    icon="pi pi-clone"
+                    pTooltip="add new password"></button>
+            </div>
+        </div>
+        <div class="passCard__controls controls">
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-save" pTooltip="save changes"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-folder" pTooltip="change tab"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-key" pTooltip="generate password"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-eye" pTooltip="show password (20 sec.)"></button>
+            <button pButton class="p-button-sm p-button-outlined controls__btn" icon="pi pi-trash" pTooltip="delete pass card"></button>
         </div>
     </div>
 </div>
