@@ -68,9 +68,20 @@ label {
 legend {
 	display: block;
 }
+/* Variables*/
+:root{
+    --mainColor: #025A6C;
+    --input-bg: #0C4755;
+}
 
 /* Main styles */
 /**/
+
+html {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
 body {
     padding: 10px;
 }
@@ -83,50 +94,60 @@ body {
 }
 .passInput {
     width: 100%;
-    height: 25px;
+    padding: 10px;
+    height: 20px;
+    font-size: 0.875rem;
 }
 .search {
     display: flex;
     gap: 20px;
     margin-bottom: 10px;
 }
-
 .search__item {
     width: 50%
 }
 .p-inputtext {
-    background: #0C4755 !important;
+    background: var(--input-bg) !important;
     border: 0;
 }
-.p-button.p-button-icon-only{
-    width: 2rem !important;
-    height: 2rem !important;
+.p-button.p-button-icon-only {
+    width: 1rem !important;
+    height: 1rem !important;
+    padding: 10px;
 }
-
 .header__btns {
     display: flex;
     gap: 15px;
 }
-
 .tabs__btn {
     display: none;
 }
-
 .passCardList {
     display: flex;
     flex-wrap: wrap;
+    max-height: calc(100vh - 117px);
+    gap: 20px;
     justify-content: center;
-    align-items: center;
+    overflow-y: auto;
 }
-
+.passCardList::-webkit-scrollbar {
+    width: 5px;
+}
+.passCardList::-webkit-scrollbar-track {
+    background-color: var(--mainColor);
+}
+.passCardList::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(165 180 252);
+}
 .passCard {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    margin-bottom: 15px;
-    background-color: #025A6C;
+    max-width: 420px;
+    background-color: var(--mainColor);
     padding: 10px;
     border-radius: 10px;
 }
@@ -136,14 +157,94 @@ body {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 5px;
 }
-
-.passCard__data {width: calc(100% - 50px);}
-
+.passCard__data {
+    width: calc(100% - 50px);
+}
 .data__item {
     display: grid;
     grid-template-columns: 1fr 3fr 0.5fr;
     gap: 10px;
     align-items: center;
     margin-bottom: 10px;
+}
+.data__label {
+    min-width: 65px;
+}
+.header__label {
+    margin-bottom: 5px;
+    display: block;
+}
+.controls {
+    display: flex;
+    gap: 20px;
+}
+.settings {
+    position: absolute;
+    background: #383838;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    z-index: 500;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.settings__block {
+    margin-bottom: 20px;
+}
+
+.settings__blockHeader {
+    font-size: 1.125rem;
+}
+
+
+
+
+
+@media screen and (min-width: 1376px) {
+    .hideDesctop{
+        display: none;
+    }
+    .header__search {
+        width: 550px;
+    }
+    .header {
+        display: flex;
+        gap:  20px;
+        align-items: center;
+    }
+    .passCard {
+        max-width: 574px;
+    }
+    .passCardList {
+        padding: 0 50px;
+        gap: 30px;
+        justify-content: flex-start;
+    }
+    .passInput {
+        height: 30px;
+    }
+    .p-button.p-button-icon-only {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    .data__input {
+        width: 330px;
+    }
+    .controls {
+        gap: 25px;
+    }
+    .tabs__btn {
+        display: initial;
+        background-color: var(--mainColor);
+        padding: 5px 20px;
+        border-radius: 0 0 5px 5px;
+    }
+    .tabs {
+        display: flex;
+        padding: 0 30px;
+        gap: 15px;
+    }
 }
