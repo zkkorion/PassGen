@@ -1,0 +1,12 @@
+<div class="settings__blockBody">
+    <div class="tabsSettings">
+        <div class="tabsSettings__addBtn">
+            <button pButton class="p-button-sm p-button-primary" icon="pi pi-plus" pTooltip="add new tab"></button>
+        </div>
+        <div class="tabsSettings__tabsList tabsList customScroll">
+            <div class="tabsList__item" *ngFor="let tab of tabsList">
+                <app-custom-input [styleClass]="'tansList__input'" [control]="tab"></app-custom-input>
+            </div>
+        </div>
+    </div>
+</div>

@@ -62,28 +62,40 @@ button::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
-label {
-	cursor: pointer;
-}
 legend {
 	display: block;
 }
+
+
 /* Variables*/
-:root{
+:root .default{
     --mainColor: #025A6C;
-    --input-bg: #0C4755;
+    --secondColor: #0C4755;
+    --mainFont: #fff;
+}
+
+:root .light{
+    --mainColor: #fff;
+    --secondColor: #ccc;
+    --mainFont: #000;
+}
+
+/* Suka prime*/
+.p-float-label input:focus ~ label, .p-float-label input.p-filled ~ label, .p-float-label textarea:focus ~ label, .p-float-label textarea.p-filled ~ label, .p-float-label .p-inputwrapper-focus ~ label, .p-float-label .p-inputwrapper-filled ~ label {
+    top: 0;
+    background-color: var(--mainColor);
 }
 
 /* Main styles */
 /**/
-
 html {
+}
+.page {
+    color: var(--mainFont);
     height: 100vh;
+    padding: 10px;
     overflow: hidden;
     position: relative;
-}
-body {
-    padding: 10px;
 }
 .header {
     margin-bottom: 10px;
@@ -94,7 +106,6 @@ body {
 }
 .passInput {
     width: 100%;
-    padding: 10px;
     height: 20px;
     font-size: 0.875rem;
 }
@@ -107,8 +118,8 @@ body {
     width: 50%
 }
 .p-inputtext {
-    background: var(--input-bg) !important;
-    border: 0;
+    background: var(--mainColor) !important;
+    border: 1px solid #ddd;
 }
 .p-button.p-button-icon-only {
     width: 1rem !important;
@@ -130,13 +141,13 @@ body {
     justify-content: center;
     overflow-y: auto;
 }
-.passCardList::-webkit-scrollbar {
+.customScroll::-webkit-scrollbar {
     width: 5px;
 }
-.passCardList::-webkit-scrollbar-track {
+.customScroll::-webkit-scrollbar-track {
     background-color: var(--mainColor);
 }
-.passCardList::-webkit-scrollbar-thumb {
+.customScroll::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgb(165 180 252);
 }
 .passCard {
@@ -148,11 +159,11 @@ body {
     width: 100%;
     max-width: 420px;
     background-color: var(--mainColor);
-    padding: 10px;
+    padding: 20px 20px 10px 10px;
     border-radius: 10px;
 }
 .passCard__order {
-    width: 40px;
+    width: 70px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -160,11 +171,11 @@ body {
     gap: 5px;
 }
 .passCard__data {
-    width: calc(100% - 50px);
+    width: calc(100% - 110px);
 }
 .data__item {
     display: grid;
-    grid-template-columns: 1fr 3fr 0.5fr;
+    grid-template-columns: 3fr 0.5fr;
     gap: 10px;
     align-items: center;
     margin-bottom: 10px;
@@ -182,28 +193,84 @@ body {
 }
 .settings {
     position: absolute;
-    background: #383838;
+    background: #fffdfd66;
+    display: flex;
     width: 100%;
-    top: 100px;
+    height: 100vh;
+    top: 0;
     left: 0;
     z-index: 500;
-    padding: 30px;
+    padding-top: 100px;
+    overflow: hidden;
     overflow-y: auto;
 }
-
+.setting__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    padding-top: 30px;
+    background: #383838;
+}
 .settings__block {
+    width: 100%;
     margin-bottom: 20px;
 }
-
 .settings__blockHeader {
     font-size: 1.125rem;
 }
-
-
-
-
+.settings__blockBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.settings__passLength {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.passLengthInput {
+    width: 50px;
+}
+.tabsSettings {
+    display: flex;
+    gap: 10px;
+}
+.tabsSettings__tabsList {
+    width: 100%;
+}
+.tabsList {
+    padding: 10px;
+    max-height: 250px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.tabsList__item {
+    margin-bottom: 10px;
+}
+.p-button {
+    height: 20px;
+}
+.language {
+    flex-direction: row;
+}
+.settings__close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+}
 
 @media screen and (min-width: 1376px) {
+    .p-button {
+        height: 32px;
+    }
     .hideDesctop{
         display: none;
     }
@@ -230,9 +297,6 @@ body {
         width: 2rem !important;
         height: 2rem !important;
     }
-    .data__input {
-        width: 330px;
-    }
     .controls {
         gap: 25px;
     }
@@ -247,4 +311,29 @@ body {
         padding: 0 30px;
         gap: 15px;
     }
+    .settings {
+        justify-content: center; 
+        align-items: center;
+        padding-top: 0;
+    }
+    .setting__wrapper {
+        width: 50%;
+        height: 350px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px;
+        gap: 20px;
+    }
+}
+
+
+
+
+.hide {
+    display: none;
+}
+.visibleHidden{
+    width: 0;
+    height: 0;
+    visibility: hidden;
 }

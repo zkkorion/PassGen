@@ -1,0 +1,17 @@
+<span class="p-float-label w-full" [class.p-input-icon-right]="showClear">
+    <input
+        [type]="type"
+        [required]="required"
+        [min]="min"
+        [max]="max"
+        pInputText
+        [formControl]="control"
+        class="passInput"
+        [readonly]="readonly"
+        [ngClass]="styleClass" />
+    <label>{{label}}</label>
+    <i
+        *ngIf="showClear && !!control.value"
+        (click)="clearField()"
+        class="pi pi-times cursor-pointer"></i>
+</span>
