@@ -1,15 +1,20 @@
 import { ChangeDetectionStrategy, Component, ComponentRef, ElementRef, Inject, Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { PasswordCard } from '../../entities/passwordCard';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CardForm } from '../../types/password';
+import { CardForm, Test } from '../../types/password';
 import { PasswordGenerator } from '../../entities/passGenerator';
 import { lng } from '../../../assets/lang';
 import { TEST_TOKEN } from '../../tokens/test';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { BaseComponent } from '../../types/baseTest';
 import { ContainerDirective } from '../../directives/container.directive';
 import { AddComponent } from '../main/main.component';
 
+interface Coords
+{
+    x: number;
+    y: number;
+}
 @Component({
     selector: 'app-password-card',
     templateUrl: './password-card.component.html',
@@ -28,9 +33,16 @@ export class PasswordCardComponent
         created: null
     }, this.passwordGenerator);
 
-    protected lng = lng.passCard;
+    @Input() public set setTest(test: Test)
+    {
 
-    @ViewChild(ContainerDirective, { static: true }) public container: ContainerDirective;
+        this.test = test;
+        console.log(this.test);
+    }
+
+    public test: Test = { numers: [], strings: [] };
+
+    protected lng = lng.passCard;
 
     private componentRef: ComponentRef<BaseComponent>;
 
@@ -39,10 +51,18 @@ export class PasswordCardComponent
         @Inject(TEST_TOKEN) readonly baseComponent: AddComponent<BaseComponent>,
     ) { }
 
-    public ngOnInit(): void
+    public coord: Observable<Coords>;
+
+    public ngAfterViewInit(): void 
     {
-        this.container.viewContainerRef.clear();
-        this.container.viewContainerRef.createComponent(this.baseComponent.component).instance.text = 'test text';
+        this.coord = new Observable<Coords>((subscribe) =>
+        {
+            document.body.addEventListener('mousemove', (e) =>
+            {
+                subscribe.next({ x: e.clientX, y: e.clientY });
+            });
+        });
+
     }
 
     protected CopyToClipboard(): void

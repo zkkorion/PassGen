@@ -30,3 +30,10 @@ export interface PasswordSettings
     specialCharacters: boolean;
     length: number;
 }
+
+
+export interface Test
+{
+    numers: number[];
+    strings: string[];
+}
